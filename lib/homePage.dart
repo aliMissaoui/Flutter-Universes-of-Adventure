@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:universes_of_adventure/presentation/app_icons.dart';
 import 'package:universes_of_adventure/presentation/style.dart';
+import 'package:universes_of_adventure/univPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,78 +25,78 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Column(
-            //mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                  child: ListView(
-                scrollDirection: Axis.vertical,
-                physics: BouncingScrollPhysics(),
-                children: [
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.all(20),
-                    child: IconButton(
-                      icon: Icon(AppIcons.fourdots),
+        body: SafeArea(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Expanded(
+                child: ListView(
+              scrollDirection: Axis.vertical,
+              physics: BouncingScrollPhysics(),
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.all(20),
+                  child: IconButton(
+                    icon: Icon(AppIcons.fourdots),
+                    color: Colors.black,
+                    onPressed: () {},
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 80, top: 30),
+                  child: Text(
+                    'Hi Adventurer!',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
                       color: Colors.black,
-                      onPressed: () {},
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 80, top: 30),
-                    child: Text(
-                      'Hi Adventurer!',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                      ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 80, top: 10),
+                  child: Text(
+                    'Let\'s discover the unkown!',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      color: Colors.black,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 16,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 80, top: 10),
-                    child: Text(
-                      'Let\'s discover the unkown!',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal,
-                        fontSize: 16,
-                      ),
+                ),
+                buildCategories(),
+                buildList(),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40, top: 0),
+                  child: Text(
+                    'Useful Informations',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
-                  buildCategories(),
-                  buildList(),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 40, top: 0),
-                    child: Text(
-                      'Useful Informations',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 40, top: 10, bottom: 20, right: 40),
+                  child: Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, tellus massa pretium dignissim enim volutpat, tortor aliquam. Nunc, a et iaculis ullamcorper. Netus dui diam fermentum posuere facilisis malesuada in. Ultrices arcu sed nibh consequat eget tellus nulla faucibus risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, tellus massa pretium dignissim enim volutpat, tortor aliquam. Nunc, a et iaculis ullamcorper. Netus dui diam fermentum posuere facilisis malesuada in. Ultrices arcu sed nibh consequat eget tellus nulla faucibus risus. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, tellus massa pretium dignissim enim volutpat, tortor aliquam. Nunc, a et iaculis ullamcorper. Netus dui diam fermentum posuere facilisis malesuada in. Ultrices arcu sed nibh consequat eget tellus nulla faucibus risus.',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      color: Colors.black,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 40, top: 10, bottom: 20, right: 40),
-                    child: Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, tellus massa pretium dignissim enim volutpat, tortor aliquam. Nunc, a et iaculis ullamcorper. Netus dui diam fermentum posuere facilisis malesuada in. Ultrices arcu sed nibh consequat eget tellus nulla faucibus risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, tellus massa pretium dignissim enim volutpat, tortor aliquam. Nunc, a et iaculis ullamcorper. Netus dui diam fermentum posuere facilisis malesuada in. Ultrices arcu sed nibh consequat eget tellus nulla faucibus risus. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum, tellus massa pretium dignissim enim volutpat, tortor aliquam. Nunc, a et iaculis ullamcorper. Netus dui diam fermentum posuere facilisis malesuada in. Ultrices arcu sed nibh consequat eget tellus nulla faucibus risus.',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                ],
-              ))
-            ]),
+                ),
+              ],
+            ))
+          ]),
+        ),
       ),
     );
   }
@@ -103,12 +104,11 @@ class _HomePageState extends State<HomePage> {
   buildCategories() {
     return Container(
       padding: EdgeInsets.only(left: 0, top: 40),
-      //margin: EdgeInsets.symmetric(vertical: 15, horizontal: 0),
       child: SizedBox(
           height: 40,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.only(left: 170, right: 20),
+            padding: EdgeInsets.only(left: 120, right: 20),
             physics: BouncingScrollPhysics(),
             itemCount: categories.length,
             itemBuilder: (BuildContext context, int index) {
@@ -130,7 +130,6 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                // color: primaryBlueColor,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 decoration: BoxDecoration(
                     color: selectedIndex == index
@@ -150,14 +149,6 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              // Container(
-              //   margin: EdgeInsets.only(top: 5),
-              //   height: 2,
-              //   width: 30,
-              //   color: selectedIndex == index
-              //       ? Colors.black
-              //       : Colors.transparent,
-              // )
             ],
           ),
         ),
@@ -166,7 +157,6 @@ class _HomePageState extends State<HomePage> {
   buildList() {
     return Container(
       padding: EdgeInsets.only(left: 0, top: 40),
-      //margin: EdgeInsets.symmetric(vertical: 15, horizontal: 0),
       child: SizedBox(
           height: 400,
           child: ListView.builder(
@@ -182,32 +172,18 @@ class _HomePageState extends State<HomePage> {
   }
 
   buildListContent(List<Map> content, int index) {
-    switch (content[index]['name']) {
-      case "Magical Univ":
-        scardColor = Colors.blue;
-
-        break;
-      case "Miracles Univ":
-        scardColor = Colors.pink;
-
-        break;
-      case "Craziness Univ":
-        scardColor = Colors.orange;
-
-        break;
-      case "Darkness Univ":
-        scardColor = Colors.yellow;
-
-        break;
-      case "Life Univ":
-        scardColor = Colors.blue;
-
-        break;
-
-      default:
-    }
     return GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            PageRouteBuilder(
+              transitionDuration: Duration(seconds: 1),
+              pageBuilder: (_, __, ___) => UnivPage(
+                pos: index,
+              ),
+            ),
+          );
+        },
         child: Stack(
           children: [
             Column(
@@ -222,18 +198,16 @@ class _HomePageState extends State<HomePage> {
                     elevation: 12,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(150)),
-                    color: firstCardColor,
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(150),
                         gradient: LinearGradient(
-                          colors: [scardColor, ecardColor],
+                          colors: [content[index]['color'], ecardColor],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
                       ),
                       child: Padding(
-                        //padding: const EdgeInsets.all(18.0),
                         padding:
                             EdgeInsets.only(bottom: 50, left: 20, right: 20),
                         child: Column(
@@ -305,11 +279,11 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   width: 80,
                 ),
-                Image.asset(content[index]['iconPath'])
+                Hero(
+                    tag: 'desired-univ$index',
+                    child: Image.asset(content[index]['iconPath']))
               ],
             ),
-            //AssetImage(content[index]['iconPath'])
-            //Image(image: content[index]['iconPath'])
           ],
         ));
   }
